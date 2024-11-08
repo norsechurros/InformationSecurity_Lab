@@ -153,6 +153,7 @@ def search(query, encrypted_index, public_key, private_key):
     if query in encrypted_index:
         # Decrypt the document IDs
         encrypted_doc_ids = encrypted_index[query]
+        print(encrypted_doc_ids)
         decrypted_doc_ids = [paillier_decrypt(enc_doc_id, private_key, public_key) for enc_doc_id in encrypted_doc_ids]
 
         # Retrieve the documents based on decrypted document IDs
